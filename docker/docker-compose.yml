@@ -1,0 +1,14 @@
+version: "3.0"
+services:
+  python-parser:
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    environment:
+      MODULE_NAME: "python-parser"
+      MODULE_TYPE: "Processing"
+      EGRESS_URLS: "https://testdockercompose.free.beeceptor.com"
+      PARSER_CODE: "parsed_data = incoming_data"
+      JSON_SCHEMA: "{'type': 'object', 'properties': {'name': {'type': 'string'}, 'age': {'type': 'integer'}}}"
+    ports:
+      - 80:80
